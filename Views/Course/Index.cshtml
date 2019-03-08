@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ContosoUniversity.Models.Course>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Cours</h2>
+
+<p>
+    @Html.ActionLink("Créer un nouveau", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Sélectionnez le département: @Html.DropDownList("SelectedDepartment", "Toutes")
+        <input type="submit" value="Filtrer" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+         @*   @Html.DisplayNameFor(model => model.CourseID)*@ Numero
+        </th>
+        <th>
+        @*    @Html.DisplayNameFor(model => model.Title)*@ Titre
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credits)
+        </th>
+        <th>
+            Département
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.CourseID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CourseID }) |
+                @Html.ActionLink("Supprimer", "Delete", new { id = item.CourseID })
+            </td>
+        </tr>
+    }
+
+</table>

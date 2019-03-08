@@ -1,0 +1,48 @@
+﻿@model ContosoUniversity.Models.Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Êtes-vous sûr de vouloir supprimer ceci?</h3>
+<div>
+    <h4>Etudiant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.LastName)*@<label class="control-label">Prénom</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.FirstMidName)*@ <label class="control-label">Nom de famille</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstMidName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.EnrollmentDate)*@ <label class="control-label">Date d'inscription</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Revenir à la liste", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,30 @@
+﻿@model ContosoUniversity.Models.Course
+
+@{
+    ViewBag.Title = "UpdateCourseCredits";
+}
+
+<h2>Mettre à jour les crédits de cours</h2>
+
+@if (ViewBag.RowsAffected == null)
+{
+    using (Html.BeginForm())
+    {
+        <p>
+            Entrez un nombre pour multiplier les crédits de chaque cours par: @Html.TextBox("multiplier")
+        </p>
+        <p>
+            <input type="submit" value="Mettre à jour" />
+        </p>
+    }
+}
+@if (ViewBag.RowsAffected != null)
+{
+    <p>
+        Nombre de lignes mises à jour: @ViewBag.RowsAffected
+    </p>
+}
+<div>
+    @Html.ActionLink("Retour à la liste", "Index")
+</div>
+

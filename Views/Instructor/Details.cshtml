@@ -1,0 +1,50 @@
+﻿@model ContosoUniversity.Models.Instructor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Professeur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.OfficeAssignment.Location)*@ Emplacement du bureau
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeAssignment.Location)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.LastName)*@  Nom de famille
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.FirstMidName)*@ Nom 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstMidName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.HireDate)*@ Date d'embauche
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HireDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>
